@@ -1,0 +1,1186 @@
+{
+  "data": {
+    "raw_train": 7401,
+    "raw_test": 1851,
+    "test_duplicate_rows": 21,
+    "train_duplicate_rows": 219,
+    "overlap_groups": 87,
+    "overlap_train_rows_excluded": 136,
+    "overlap_test_rows": 101,
+    "train_class_counts": [
+      1082,
+      6319
+    ],
+    "retained_class_counts": [
+      1062,
+      6203
+    ],
+    "split_counts": {
+      "fit": [
+        637,
+        3722
+      ],
+      "dev": [
+        212,
+        1241
+      ],
+      "audit": [
+        213,
+        1240
+      ]
+    },
+    "sha256": {
+      "train": "72ad980f35c5197156c89bbe26e466e448e406ef923473952dd6716372352b43",
+      "test": "f4d887f020b9113dd642205188019ca635d9d2894cd37b109da28ba1b5a00027",
+      "sample": "6122c5022f2e82cf0e0ad9421f5a85caaedf5b4220d329b50d96937fd7cddd4d"
+    }
+  },
+  "selection_rule": "dev macro-F1, then accuracy, then negative recall; stable grid order on ties",
+  "resource": [
+    {
+      "features": "word_unigram",
+      "dimension": 5552,
+      "fit_transform_seconds": 0.09915204101707786,
+      "train_matrix_bytes": 1384872,
+      "train_nonzero": 170929
+    },
+    {
+      "features": "word_bigram",
+      "dimension": 28000,
+      "fit_transform_seconds": 0.26575795793905854,
+      "train_matrix_bytes": 2590464,
+      "train_nonzero": 321628
+    },
+    {
+      "features": "word_bigram_svd",
+      "dimension": 128,
+      "fit_transform_seconds": 0.6140977918403223,
+      "train_matrix_bytes": 2231808,
+      "train_nonzero": 557952
+    },
+    {
+      "features": "character",
+      "dimension": 40000,
+      "fit_transform_seconds": 0.9507930841064081,
+      "train_matrix_bytes": 14762128,
+      "train_nonzero": 1843086
+    },
+    {
+      "features": "hybrid",
+      "dimension": 68000,
+      "fit_transform_seconds": 1.2339507499709725,
+      "train_matrix_bytes": 17335152,
+      "train_nonzero": 2164714
+    }
+  ],
+  "candidates": [
+    {
+      "config": {
+        "model": "Logistic regression",
+        "features": "word_unigram",
+        "C": 0.3,
+        "balanced": false
+      },
+      "dev": {
+        "n": 1453,
+        "accuracy": 0.8568479008947006,
+        "macro_f1": 0.4798568084813438,
+        "negative_recall": 0.018867924528301886,
+        "positive_recall": 1.0,
+        "confusion": [
+          [
+            4,
+            208
+          ],
+          [
+            0,
+            1241
+          ]
+        ]
+      },
+      "fit_seconds": 0.01619487500283867,
+      "iterations": 8
+    },
+    {
+      "config": {
+        "model": "Logistic regression",
+        "features": "word_unigram",
+        "C": 0.3,
+        "balanced": true
+      },
+      "dev": {
+        "n": 1453,
+        "accuracy": 0.8699242945629732,
+        "macro_f1": 0.7816050636495145,
+        "negative_recall": 0.8018867924528302,
+        "positive_recall": 0.8815471394037067,
+        "confusion": [
+          [
+            170,
+            42
+          ],
+          [
+            147,
+            1094
+          ]
+        ]
+      },
+      "fit_seconds": 0.010779957985505462,
+      "iterations": 5
+    },
+    {
+      "config": {
+        "model": "Logistic regression",
+        "features": "word_unigram",
+        "C": 1.0,
+        "balanced": false
+      },
+      "dev": {
+        "n": 1453,
+        "accuracy": 0.88093599449415,
+        "macro_f1": 0.6333446620564112,
+        "negative_recall": 0.2028301886792453,
+        "positive_recall": 0.9967767929089444,
+        "confusion": [
+          [
+            43,
+            169
+          ],
+          [
+            4,
+            1237
+          ]
+        ]
+      },
+      "fit_seconds": 0.013194124912843108,
+      "iterations": 9
+    },
+    {
+      "config": {
+        "model": "Logistic regression",
+        "features": "word_unigram",
+        "C": 1.0,
+        "balanced": true
+      },
+      "dev": {
+        "n": 1453,
+        "accuracy": 0.8891947694425327,
+        "macro_f1": 0.8039851019527502,
+        "negative_recall": 0.7877358490566038,
+        "positive_recall": 0.9065269943593876,
+        "confusion": [
+          [
+            167,
+            45
+          ],
+          [
+            116,
+            1125
+          ]
+        ]
+      },
+      "fit_seconds": 0.013524124980904162,
+      "iterations": 6
+    },
+    {
+      "config": {
+        "model": "Logistic regression",
+        "features": "word_unigram",
+        "C": 3.0,
+        "balanced": false
+      },
+      "dev": {
+        "n": 1453,
+        "accuracy": 0.9098417068134893,
+        "macro_f1": 0.7654745080451302,
+        "negative_recall": 0.42924528301886794,
+        "positive_recall": 0.991941982272361,
+        "confusion": [
+          [
+            91,
+            121
+          ],
+          [
+            10,
+            1231
+          ]
+        ]
+      },
+      "fit_seconds": 0.01593491598032415,
+      "iterations": 11
+    },
+    {
+      "config": {
+        "model": "Logistic regression",
+        "features": "word_unigram",
+        "C": 3.0,
+        "balanced": true
+      },
+      "dev": {
+        "n": 1453,
+        "accuracy": 0.8974535443909153,
+        "macro_f1": 0.8112304197892553,
+        "negative_recall": 0.7594339622641509,
+        "positive_recall": 0.9210314262691378,
+        "confusion": [
+          [
+            161,
+            51
+          ],
+          [
+            98,
+            1143
+          ]
+        ]
+      },
+      "fit_seconds": 0.015764874988235533,
+      "iterations": 7
+    },
+    {
+      "config": {
+        "model": "Logistic regression",
+        "features": "word_unigram",
+        "C": 10.0,
+        "balanced": false
+      },
+      "dev": {
+        "n": 1453,
+        "accuracy": 0.9146593255333793,
+        "macro_f1": 0.7965904985549133,
+        "negative_recall": 0.5235849056603774,
+        "positive_recall": 0.9814665592264303,
+        "confusion": [
+          [
+            111,
+            101
+          ],
+          [
+            23,
+            1218
+          ]
+        ]
+      },
+      "fit_seconds": 0.01899537502322346,
+      "iterations": 12
+    },
+    {
+      "config": {
+        "model": "Logistic regression",
+        "features": "word_unigram",
+        "C": 10.0,
+        "balanced": true
+      },
+      "dev": {
+        "n": 1453,
+        "accuracy": 0.905712319339298,
+        "macro_f1": 0.8168821551609149,
+        "negative_recall": 0.7169811320754716,
+        "positive_recall": 0.9379532634971797,
+        "confusion": [
+          [
+            152,
+            60
+          ],
+          [
+            77,
+            1164
+          ]
+        ]
+      },
+      "fit_seconds": 0.02145579201169312,
+      "iterations": 8
+    },
+    {
+      "config": {
+        "model": "Logistic regression",
+        "features": "word_bigram",
+        "C": 0.3,
+        "balanced": false
+      },
+      "dev": {
+        "n": 1453,
+        "accuracy": 0.8540949759119064,
+        "macro_f1": 0.46065330363771345,
+        "negative_recall": 0.0,
+        "positive_recall": 1.0,
+        "confusion": [
+          [
+            0,
+            212
+          ],
+          [
+            0,
+            1241
+          ]
+        ]
+      },
+      "fit_seconds": 0.025710707996040583,
+      "iterations": 7
+    },
+    {
+      "config": {
+        "model": "Logistic regression",
+        "features": "word_bigram",
+        "C": 0.3,
+        "balanced": true
+      },
+      "dev": {
+        "n": 1453,
+        "accuracy": 0.891947694425327,
+        "macro_f1": 0.8057197119704306,
+        "negative_recall": 0.7735849056603774,
+        "positive_recall": 0.9121676067687349,
+        "confusion": [
+          [
+            164,
+            48
+          ],
+          [
+            109,
+            1132
+          ]
+        ]
+      },
+      "fit_seconds": 0.017472374951466918,
+      "iterations": 5
+    },
+    {
+      "config": {
+        "model": "Logistic regression",
+        "features": "word_bigram",
+        "C": 1.0,
+        "balanced": false
+      },
+      "dev": {
+        "n": 1453,
+        "accuracy": 0.8651066758430833,
+        "macro_f1": 0.5409369922368659,
+        "negative_recall": 0.08490566037735849,
+        "positive_recall": 0.9983883964544722,
+        "confusion": [
+          [
+            18,
+            194
+          ],
+          [
+            2,
+            1239
+          ]
+        ]
+      },
+      "fit_seconds": 0.022071124985814095,
+      "iterations": 9
+    },
+    {
+      "config": {
+        "model": "Logistic regression",
+        "features": "word_bigram",
+        "C": 1.0,
+        "balanced": true
+      },
+      "dev": {
+        "n": 1453,
+        "accuracy": 0.9167240192704749,
+        "macro_f1": 0.8376630751431424,
+        "negative_recall": 0.75,
+        "positive_recall": 0.9452054794520548,
+        "confusion": [
+          [
+            159,
+            53
+          ],
+          [
+            68,
+            1173
+          ]
+        ]
+      },
+      "fit_seconds": 0.021746583050116897,
+      "iterations": 6
+    },
+    {
+      "config": {
+        "model": "Logistic regression",
+        "features": "word_bigram",
+        "C": 3.0,
+        "balanced": false
+      },
+      "dev": {
+        "n": 1453,
+        "accuracy": 0.8912594631796283,
+        "macro_f1": 0.6857664553288876,
+        "negative_recall": 0.2830188679245283,
+        "positive_recall": 0.9951651893634166,
+        "confusion": [
+          [
+            60,
+            152
+          ],
+          [
+            6,
+            1235
+          ]
+        ]
+      },
+      "fit_seconds": 0.02630079200025648,
+      "iterations": 10
+    },
+    {
+      "config": {
+        "model": "Logistic regression",
+        "features": "word_bigram",
+        "C": 3.0,
+        "balanced": true
+      },
+      "dev": {
+        "n": 1453,
+        "accuracy": 0.9229181004817619,
+        "macro_f1": 0.8428946555452579,
+        "negative_recall": 0.7169811320754716,
+        "positive_recall": 0.9580983078162773,
+        "confusion": [
+          [
+            152,
+            60
+          ],
+          [
+            52,
+            1189
+          ]
+        ]
+      },
+      "fit_seconds": 0.024263374973088503,
+      "iterations": 6
+    },
+    {
+      "config": {
+        "model": "Logistic regression",
+        "features": "word_bigram",
+        "C": 10.0,
+        "balanced": false
+      },
+      "dev": {
+        "n": 1453,
+        "accuracy": 0.9112181693048864,
+        "macro_f1": 0.7703442318648803,
+        "negative_recall": 0.4386792452830189,
+        "positive_recall": 0.991941982272361,
+        "confusion": [
+          [
+            93,
+            119
+          ],
+          [
+            10,
+            1231
+          ]
+        ]
+      },
+      "fit_seconds": 0.029465792002156377,
+      "iterations": 11
+    },
+    {
+      "config": {
+        "model": "Logistic regression",
+        "features": "word_bigram",
+        "C": 10.0,
+        "balanced": true
+      },
+      "dev": {
+        "n": 1453,
+        "accuracy": 0.9263592567102547,
+        "macro_f1": 0.8458713067891731,
+        "negative_recall": 0.6981132075471698,
+        "positive_recall": 0.9653505237711523,
+        "confusion": [
+          [
+            148,
+            64
+          ],
+          [
+            43,
+            1198
+          ]
+        ]
+      },
+      "fit_seconds": 0.029480707948096097,
+      "iterations": 7
+    },
+    {
+      "config": {
+        "model": "MLP",
+        "features": "word_bigram",
+        "learning_rate": 0.001,
+        "balanced": false
+      },
+      "dev": {
+        "n": 1453,
+        "accuracy": 0.9008947006194081,
+        "macro_f1": 0.7749322318316767,
+        "negative_recall": 0.5235849056603774,
+        "positive_recall": 0.9653505237711523,
+        "confusion": [
+          [
+            111,
+            101
+          ],
+          [
+            43,
+            1198
+          ]
+        ]
+      },
+      "fit_seconds": 0.22954379196744412,
+      "epochs": 30,
+      "last_epoch_loss": 0.0417450241026058
+    },
+    {
+      "config": {
+        "model": "MLP",
+        "features": "word_bigram",
+        "learning_rate": 0.001,
+        "balanced": true
+      },
+      "dev": {
+        "n": 1453,
+        "accuracy": 0.8974535443909153,
+        "macro_f1": 0.8015807769892833,
+        "negative_recall": 0.6933962264150944,
+        "positive_recall": 0.9323126510878323,
+        "confusion": [
+          [
+            147,
+            65
+          ],
+          [
+            84,
+            1157
+          ]
+        ]
+      },
+      "fit_seconds": 0.23459562507923692,
+      "epochs": 30,
+      "last_epoch_loss": 0.06760926598346632
+    },
+    {
+      "config": {
+        "model": "MLP",
+        "features": "word_bigram",
+        "learning_rate": 0.003,
+        "balanced": false
+      },
+      "dev": {
+        "n": 1453,
+        "accuracy": 0.8898830006882312,
+        "macro_f1": 0.7522380424588626,
+        "negative_recall": 0.49528301886792453,
+        "positive_recall": 0.9572925060435133,
+        "confusion": [
+          [
+            105,
+            107
+          ],
+          [
+            53,
+            1188
+          ]
+        ]
+      },
+      "fit_seconds": 0.22188854194246233,
+      "epochs": 30,
+      "last_epoch_loss": 0.006281381995429631
+    },
+    {
+      "config": {
+        "model": "MLP",
+        "features": "word_bigram",
+        "learning_rate": 0.003,
+        "balanced": true
+      },
+      "dev": {
+        "n": 1453,
+        "accuracy": 0.8947006194081212,
+        "macro_f1": 0.7849520925935778,
+        "negative_recall": 0.6179245283018868,
+        "positive_recall": 0.9419822723609992,
+        "confusion": [
+          [
+            131,
+            81
+          ],
+          [
+            72,
+            1169
+          ]
+        ]
+      },
+      "fit_seconds": 0.24271583394147456,
+      "epochs": 30,
+      "last_epoch_loss": 0.008652760692912527
+    },
+    {
+      "config": {
+        "model": "Logistic regression",
+        "features": "character",
+        "C": 0.3,
+        "balanced": false
+      },
+      "dev": {
+        "n": 1453,
+        "accuracy": 0.8602890571231934,
+        "macro_f1": 0.5029213748241024,
+        "negative_recall": 0.04245283018867924,
+        "positive_recall": 1.0,
+        "confusion": [
+          [
+            9,
+            203
+          ],
+          [
+            0,
+            1241
+          ]
+        ]
+      },
+      "fit_seconds": 0.15652329206932336,
+      "iterations": 8
+    },
+    {
+      "config": {
+        "model": "Logistic regression",
+        "features": "character",
+        "C": 0.3,
+        "balanced": true
+      },
+      "dev": {
+        "n": 1453,
+        "accuracy": 0.8692360633172747,
+        "macro_f1": 0.780771551997967,
+        "negative_recall": 0.8018867924528302,
+        "positive_recall": 0.8807413376309428,
+        "confusion": [
+          [
+            170,
+            42
+          ],
+          [
+            148,
+            1093
+          ]
+        ]
+      },
+      "fit_seconds": 0.10043654195033014,
+      "iterations": 6
+    },
+    {
+      "config": {
+        "model": "Logistic regression",
+        "features": "character",
+        "C": 1.0,
+        "balanced": false
+      },
+      "dev": {
+        "n": 1453,
+        "accuracy": 0.8843771507226428,
+        "macro_f1": 0.6547248594027588,
+        "negative_recall": 0.2358490566037736,
+        "positive_recall": 0.9951651893634166,
+        "confusion": [
+          [
+            50,
+            162
+          ],
+          [
+            6,
+            1235
+          ]
+        ]
+      },
+      "fit_seconds": 0.11671662493608892,
+      "iterations": 9
+    },
+    {
+      "config": {
+        "model": "Logistic regression",
+        "features": "character",
+        "C": 1.0,
+        "balanced": true
+      },
+      "dev": {
+        "n": 1453,
+        "accuracy": 0.8933241569167241,
+        "macro_f1": 0.8100677621619798,
+        "negative_recall": 0.7924528301886793,
+        "positive_recall": 0.9105560032232071,
+        "confusion": [
+          [
+            168,
+            44
+          ],
+          [
+            111,
+            1130
+          ]
+        ]
+      },
+      "fit_seconds": 0.11572720808908343,
+      "iterations": 6
+    },
+    {
+      "config": {
+        "model": "Logistic regression",
+        "features": "character",
+        "C": 3.0,
+        "balanced": false
+      },
+      "dev": {
+        "n": 1453,
+        "accuracy": 0.9036476256022024,
+        "macro_f1": 0.7486556748314651,
+        "negative_recall": 0.4056603773584906,
+        "positive_recall": 0.9887187751813054,
+        "confusion": [
+          [
+            86,
+            126
+          ],
+          [
+            14,
+            1227
+          ]
+        ]
+      },
+      "fit_seconds": 0.1571857089875266,
+      "iterations": 11
+    },
+    {
+      "config": {
+        "model": "Logistic regression",
+        "features": "character",
+        "C": 3.0,
+        "balanced": true
+      },
+      "dev": {
+        "n": 1453,
+        "accuracy": 0.9112181693048864,
+        "macro_f1": 0.8331183174809224,
+        "negative_recall": 0.7783018867924528,
+        "positive_recall": 0.9339242546333602,
+        "confusion": [
+          [
+            165,
+            47
+          ],
+          [
+            82,
+            1159
+          ]
+        ]
+      },
+      "fit_seconds": 0.15566262509673834,
+      "iterations": 7
+    },
+    {
+      "config": {
+        "model": "Logistic regression",
+        "features": "character",
+        "C": 10.0,
+        "balanced": false
+      },
+      "dev": {
+        "n": 1453,
+        "accuracy": 0.9194769442532691,
+        "macro_f1": 0.8046443801689931,
+        "negative_recall": 0.5235849056603774,
+        "positive_recall": 0.9871071716357775,
+        "confusion": [
+          [
+            111,
+            101
+          ],
+          [
+            16,
+            1225
+          ]
+        ]
+      },
+      "fit_seconds": 0.1829155000159517,
+      "iterations": 12
+    },
+    {
+      "config": {
+        "model": "Logistic regression",
+        "features": "character",
+        "C": 10.0,
+        "balanced": true
+      },
+      "dev": {
+        "n": 1453,
+        "accuracy": 0.9125946317962835,
+        "macro_f1": 0.8315008514854197,
+        "negative_recall": 0.75,
+        "positive_recall": 0.9403706688154714,
+        "confusion": [
+          [
+            159,
+            53
+          ],
+          [
+            74,
+            1167
+          ]
+        ]
+      },
+      "fit_seconds": 0.20857729203999043,
+      "iterations": 8
+    },
+    {
+      "config": {
+        "model": "Logistic regression",
+        "features": "hybrid",
+        "C": 0.3,
+        "balanced": false
+      },
+      "dev": {
+        "n": 1453,
+        "accuracy": 0.8582243633860978,
+        "macro_f1": 0.48920448339886413,
+        "negative_recall": 0.02830188679245283,
+        "positive_recall": 1.0,
+        "confusion": [
+          [
+            6,
+            206
+          ],
+          [
+            0,
+            1241
+          ]
+        ]
+      },
+      "fit_seconds": 0.18972899997606874,
+      "iterations": 8
+    },
+    {
+      "config": {
+        "model": "Logistic regression",
+        "features": "hybrid",
+        "C": 0.3,
+        "balanced": true
+      },
+      "dev": {
+        "n": 1453,
+        "accuracy": 0.9008947006194081,
+        "macro_f1": 0.8197183486934164,
+        "negative_recall": 0.7877358490566038,
+        "positive_recall": 0.9202256244963739,
+        "confusion": [
+          [
+            167,
+            45
+          ],
+          [
+            99,
+            1142
+          ]
+        ]
+      },
+      "fit_seconds": 0.10605720803141594,
+      "iterations": 5
+    },
+    {
+      "config": {
+        "model": "Logistic regression",
+        "features": "hybrid",
+        "C": 1.0,
+        "balanced": false
+      },
+      "dev": {
+        "n": 1453,
+        "accuracy": 0.8802477632484514,
+        "macro_f1": 0.6325047967905111,
+        "negative_recall": 0.2028301886792453,
+        "positive_recall": 0.9959709911361805,
+        "confusion": [
+          [
+            43,
+            169
+          ],
+          [
+            5,
+            1236
+          ]
+        ]
+      },
+      "fit_seconds": 0.1605015000095591,
+      "iterations": 10
+    },
+    {
+      "config": {
+        "model": "Logistic regression",
+        "features": "hybrid",
+        "C": 1.0,
+        "balanced": true
+      },
+      "dev": {
+        "n": 1453,
+        "accuracy": 0.9222298692360633,
+        "macro_f1": 0.8500755607704915,
+        "negative_recall": 0.7830188679245284,
+        "positive_recall": 0.9460112812248187,
+        "confusion": [
+          [
+            166,
+            46
+          ],
+          [
+            67,
+            1174
+          ]
+        ]
+      },
+      "fit_seconds": 0.1415128749795258,
+      "iterations": 6
+    },
+    {
+      "config": {
+        "model": "Logistic regression",
+        "features": "hybrid",
+        "C": 3.0,
+        "balanced": false
+      },
+      "dev": {
+        "n": 1453,
+        "accuracy": 0.9084652443220922,
+        "macro_f1": 0.7578008580097833,
+        "negative_recall": 0.41037735849056606,
+        "positive_recall": 0.9935535858178888,
+        "confusion": [
+          [
+            87,
+            125
+          ],
+          [
+            8,
+            1233
+          ]
+        ]
+      },
+      "fit_seconds": 0.18956108309794217,
+      "iterations": 11
+    },
+    {
+      "config": {
+        "model": "Logistic regression",
+        "features": "hybrid",
+        "C": 3.0,
+        "balanced": true
+      },
+      "dev": {
+        "n": 1453,
+        "accuracy": 0.9277357192016518,
+        "macro_f1": 0.8535918998361888,
+        "negative_recall": 0.7405660377358491,
+        "positive_recall": 0.959709911361805,
+        "confusion": [
+          [
+            157,
+            55
+          ],
+          [
+            50,
+            1191
+          ]
+        ]
+      },
+      "fit_seconds": 0.1838406251044944,
+      "iterations": 7
+    },
+    {
+      "config": {
+        "model": "Logistic regression",
+        "features": "hybrid",
+        "C": 10.0,
+        "balanced": false
+      },
+      "dev": {
+        "n": 1453,
+        "accuracy": 0.9167240192704749,
+        "macro_f1": 0.7926325113554202,
+        "negative_recall": 0.49056603773584906,
+        "positive_recall": 0.9895245769540693,
+        "confusion": [
+          [
+            104,
+            108
+          ],
+          [
+            13,
+            1228
+          ]
+        ]
+      },
+      "fit_seconds": 0.20827829197514802,
+      "iterations": 12
+    },
+    {
+      "config": {
+        "model": "Logistic regression",
+        "features": "hybrid",
+        "C": 10.0,
+        "balanced": true
+      },
+      "dev": {
+        "n": 1453,
+        "accuracy": 0.930488644184446,
+        "macro_f1": 0.8545140372495933,
+        "negative_recall": 0.7122641509433962,
+        "positive_recall": 0.967767929089444,
+        "confusion": [
+          [
+            151,
+            61
+          ],
+          [
+            40,
+            1201
+          ]
+        ]
+      },
+      "fit_seconds": 0.23167208407539874,
+      "iterations": 8
+    }
+  ],
+  "selected": {
+    "config": {
+      "model": "Logistic regression",
+      "features": "hybrid",
+      "C": 10.0,
+      "balanced": true
+    },
+    "dev": {
+      "n": 1453,
+      "accuracy": 0.930488644184446,
+      "macro_f1": 0.8545140372495933,
+      "negative_recall": 0.7122641509433962,
+      "positive_recall": 0.967767929089444,
+      "confusion": [
+        [
+          151,
+          61
+        ],
+        [
+          40,
+          1201
+        ]
+      ]
+    },
+    "fit_seconds": 0.23167208407539874,
+    "iterations": 8
+  },
+  "audit": {
+    "baseline": {
+      "config": {
+        "model": "Logistic regression",
+        "features": "word_unigram",
+        "C": 1.0,
+        "balanced": false
+      },
+      "dimension": 6492,
+      "n": 1453,
+      "accuracy": 0.8891947694425327,
+      "macro_f1": 0.6766759959918455,
+      "negative_recall": 0.2676056338028169,
+      "positive_recall": 0.9959677419354839,
+      "confusion": [
+        [
+          57,
+          156
+        ],
+        [
+          5,
+          1235
+        ]
+      ]
+    },
+    "best_neural": {
+      "config": {
+        "model": "MLP",
+        "features": "word_bigram",
+        "learning_rate": 0.001,
+        "balanced": true
+      },
+      "dimension": 128,
+      "n": 1453,
+      "accuracy": 0.8981417756366139,
+      "macro_f1": 0.8047156515169127,
+      "negative_recall": 0.704225352112676,
+      "positive_recall": 0.9314516129032258,
+      "confusion": [
+        [
+          150,
+          63
+        ],
+        [
+          85,
+          1155
+        ]
+      ]
+    },
+    "selected": {
+      "config": {
+        "model": "Logistic regression",
+        "features": "hybrid",
+        "C": 10.0,
+        "balanced": true
+      },
+      "dimension": 68000,
+      "n": 1453,
+      "accuracy": 0.9174122505161735,
+      "macro_f1": 0.8362324829995866,
+      "negative_recall": 0.7276995305164319,
+      "positive_recall": 0.95,
+      "confusion": [
+        [
+          155,
+          58
+        ],
+        [
+          62,
+          1178
+        ]
+      ]
+    },
+    "majority": {
+      "n": 1453,
+      "accuracy": 0.8534067446662078,
+      "macro_f1": 0.4604530263646491,
+      "negative_recall": 0.0,
+      "positive_recall": 1.0,
+      "confusion": [
+        [
+          0,
+          213
+        ],
+        [
+          0,
+          1240
+        ]
+      ]
+    }
+  },
+  "final_dimension": 68000,
+  "test_predicted_counts": [
+    272,
+    1579
+  ],
+  "environment": {
+    "seed": 6483,
+    "device": "CPU",
+    "platform": "macOS-15.7.3-arm64-arm-64bit",
+    "python": "3.11.16",
+    "numpy": "2.4.6",
+    "scipy": "1.17.1",
+    "sklearn": "1.9.1"
+  }
+}
